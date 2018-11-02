@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		3F3BAE542180A97F0021F58D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BAE532180A97F0021F58D /* AppDelegate.swift */; };
-		3F3BAE562180A97F0021F58D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BAE552180A97F0021F58D /* ViewController.swift */; };
+		3F3BAE562180A97F0021F58D /* LezingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BAE552180A97F0021F58D /* LezingTableViewController.swift */; };
 		3F3BAE592180A97F0021F58D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3BAE572180A97F0021F58D /* Main.storyboard */; };
 		3F3BAE5B2180A9880021F58D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F3BAE5A2180A9880021F58D /* Assets.xcassets */; };
 		3F3BAE5E2180A9880021F58D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3BAE5C2180A9880021F58D /* LaunchScreen.storyboard */; };
 		3F3BAE692180A9890021F58D /* AttendanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BAE682180A9890021F58D /* AttendanceTests.swift */; };
 		3F3BAE742180A9890021F58D /* AttendanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BAE732180A9890021F58D /* AttendanceUITests.swift */; };
+		3F3BAE8C2180ACA20021F58D /* Lezing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BAE8B2180ACA20021F58D /* Lezing.swift */; };
+		3F941B992189C114009F2AE6 /* EventLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F941B982189C114009F2AE6 /* EventLocation.swift */; };
+		3F941B9B2189C1A9009F2AE6 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F941B9A2189C1A9009F2AE6 /* LocationSearchTableViewController.swift */; };
+		3F941BA82189F54E009F2AE6 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F941BA72189F54E009F2AE6 /* GroupTableViewCell.swift */; };
+		3F941BAA2189F858009F2AE6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F941BA92189F858009F2AE6 /* Group.swift */; };
+		3F941BAC2189F9B1009F2AE6 /* AddGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F941BAB2189F9B1009F2AE6 /* AddGroupsTableViewController.swift */; };
+		3FE797D7218883040045A4C4 /* AddEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE797D6218883040045A4C4 /* AddEventTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +43,7 @@
 /* Begin PBXFileReference section */
 		3F3BAE502180A97F0021F58D /* Attendance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attendance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F3BAE532180A97F0021F58D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F3BAE552180A97F0021F58D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3F3BAE552180A97F0021F58D /* LezingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LezingTableViewController.swift; sourceTree = "<group>"; };
 		3F3BAE582180A97F0021F58D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F3BAE5A2180A9880021F58D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F3BAE5D2180A9880021F58D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +54,13 @@
 		3F3BAE6F2180A9890021F58D /* AttendanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AttendanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F3BAE732180A9890021F58D /* AttendanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceUITests.swift; sourceTree = "<group>"; };
 		3F3BAE752180A9890021F58D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F3BAE8B2180ACA20021F58D /* Lezing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lezing.swift; sourceTree = "<group>"; };
+		3F941B982189C114009F2AE6 /* EventLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocation.swift; sourceTree = "<group>"; };
+		3F941B9A2189C1A9009F2AE6 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
+		3F941BA72189F54E009F2AE6 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
+		3F941BA92189F858009F2AE6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		3F941BAB2189F9B1009F2AE6 /* AddGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupsTableViewController.swift; sourceTree = "<group>"; };
+		3FE797D6218883040045A4C4 /* AddEventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +111,11 @@
 		3F3BAE522180A97F0021F58D /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
+				3F3BAE842180A9D20021F58D /* Other */,
+				3F3BAE832180A9CB0021F58D /* Models */,
+				3F3BAE822180A9C50021F58D /* Views */,
+				3F3BAE812180A9AD0021F58D /* View Controllers */,
 				3F3BAE532180A97F0021F58D /* AppDelegate.swift */,
-				3F3BAE552180A97F0021F58D /* ViewController.swift */,
 				3F3BAE572180A97F0021F58D /* Main.storyboard */,
 				3F3BAE5A2180A9880021F58D /* Assets.xcassets */,
 				3F3BAE5C2180A9880021F58D /* LaunchScreen.storyboard */,
@@ -123,6 +140,42 @@
 				3F3BAE752180A9890021F58D /* Info.plist */,
 			);
 			path = AttendanceUITests;
+			sourceTree = "<group>";
+		};
+		3F3BAE812180A9AD0021F58D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F3BAE552180A97F0021F58D /* LezingTableViewController.swift */,
+				3FE797D6218883040045A4C4 /* AddEventTableViewController.swift */,
+				3F941B9A2189C1A9009F2AE6 /* LocationSearchTableViewController.swift */,
+				3F941BAB2189F9B1009F2AE6 /* AddGroupsTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3F3BAE822180A9C50021F58D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3F941BA72189F54E009F2AE6 /* GroupTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3F3BAE832180A9CB0021F58D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F3BAE8B2180ACA20021F58D /* Lezing.swift */,
+				3F941B982189C114009F2AE6 /* EventLocation.swift */,
+				3F941BA92189F858009F2AE6 /* Group.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3F3BAE842180A9D20021F58D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +309,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F3BAE562180A97F0021F58D /* ViewController.swift in Sources */,
+				3F941BA82189F54E009F2AE6 /* GroupTableViewCell.swift in Sources */,
+				3F3BAE562180A97F0021F58D /* LezingTableViewController.swift in Sources */,
 				3F3BAE542180A97F0021F58D /* AppDelegate.swift in Sources */,
+				3F941BAA2189F858009F2AE6 /* Group.swift in Sources */,
+				3F941B992189C114009F2AE6 /* EventLocation.swift in Sources */,
+				3FE797D7218883040045A4C4 /* AddEventTableViewController.swift in Sources */,
+				3F941B9B2189C1A9009F2AE6 /* LocationSearchTableViewController.swift in Sources */,
+				3F941BAC2189F9B1009F2AE6 /* AddGroupsTableViewController.swift in Sources */,
+				3F3BAE8C2180ACA20021F58D /* Lezing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
