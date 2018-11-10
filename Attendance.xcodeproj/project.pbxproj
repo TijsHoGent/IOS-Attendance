@@ -1,0 +1,643 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F3BAE542180A97F0021F58D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BAE532180A97F0021F58D /* AppDelegate.swift */; };
+		3F3BAE562180A97F0021F58D /* LezingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BAE552180A97F0021F58D /* LezingTableViewController.swift */; };
+		3F3BAE592180A97F0021F58D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3BAE572180A97F0021F58D /* Main.storyboard */; };
+		3F3BAE5B2180A9880021F58D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F3BAE5A2180A9880021F58D /* Assets.xcassets */; };
+		3F3BAE5E2180A9880021F58D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3BAE5C2180A9880021F58D /* LaunchScreen.storyboard */; };
+		3F3BAE692180A9890021F58D /* AttendanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BAE682180A9890021F58D /* AttendanceTests.swift */; };
+		3F3BAE742180A9890021F58D /* AttendanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BAE732180A9890021F58D /* AttendanceUITests.swift */; };
+		3F3BAE8C2180ACA20021F58D /* Lezing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BAE8B2180ACA20021F58D /* Lezing.swift */; };
+		3F941B992189C114009F2AE6 /* EventLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F941B982189C114009F2AE6 /* EventLocation.swift */; };
+		3F941B9B2189C1A9009F2AE6 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F941B9A2189C1A9009F2AE6 /* LocationSearchTableViewController.swift */; };
+		3F941BA82189F54E009F2AE6 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F941BA72189F54E009F2AE6 /* GroupTableViewCell.swift */; };
+		3F941BAA2189F858009F2AE6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F941BA92189F858009F2AE6 /* Group.swift */; };
+		3F941BAC2189F9B1009F2AE6 /* AddGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F941BAB2189F9B1009F2AE6 /* AddGroupsTableViewController.swift */; };
+		3FE797D7218883040045A4C4 /* AddEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE797D6218883040045A4C4 /* AddEventTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3F3BAE652180A9890021F58D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F3BAE482180A97F0021F58D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F3BAE4F2180A97F0021F58D;
+			remoteInfo = Attendance;
+		};
+		3F3BAE702180A9890021F58D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F3BAE482180A97F0021F58D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F3BAE4F2180A97F0021F58D;
+			remoteInfo = Attendance;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3F3BAE502180A97F0021F58D /* Attendance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attendance.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F3BAE532180A97F0021F58D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3F3BAE552180A97F0021F58D /* LezingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LezingTableViewController.swift; sourceTree = "<group>"; };
+		3F3BAE582180A97F0021F58D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3F3BAE5A2180A9880021F58D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3F3BAE5D2180A9880021F58D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3F3BAE5F2180A9880021F58D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F3BAE642180A9890021F58D /* AttendanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AttendanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F3BAE682180A9890021F58D /* AttendanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTests.swift; sourceTree = "<group>"; };
+		3F3BAE6A2180A9890021F58D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F3BAE6F2180A9890021F58D /* AttendanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AttendanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F3BAE732180A9890021F58D /* AttendanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceUITests.swift; sourceTree = "<group>"; };
+		3F3BAE752180A9890021F58D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F3BAE8B2180ACA20021F58D /* Lezing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lezing.swift; sourceTree = "<group>"; };
+		3F941B982189C114009F2AE6 /* EventLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocation.swift; sourceTree = "<group>"; };
+		3F941B9A2189C1A9009F2AE6 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
+		3F941BA72189F54E009F2AE6 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
+		3F941BA92189F858009F2AE6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		3F941BAB2189F9B1009F2AE6 /* AddGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupsTableViewController.swift; sourceTree = "<group>"; };
+		3FE797D6218883040045A4C4 /* AddEventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventTableViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F3BAE4D2180A97F0021F58D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F3BAE612180A9890021F58D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F3BAE6C2180A9890021F58D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F3BAE472180A97F0021F58D = {
+			isa = PBXGroup;
+			children = (
+				3F3BAE522180A97F0021F58D /* Attendance */,
+				3F3BAE672180A9890021F58D /* AttendanceTests */,
+				3F3BAE722180A9890021F58D /* AttendanceUITests */,
+				3F3BAE512180A97F0021F58D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F3BAE512180A97F0021F58D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F3BAE502180A97F0021F58D /* Attendance.app */,
+				3F3BAE642180A9890021F58D /* AttendanceTests.xctest */,
+				3F3BAE6F2180A9890021F58D /* AttendanceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F3BAE522180A97F0021F58D /* Attendance */ = {
+			isa = PBXGroup;
+			children = (
+				3F3BAE842180A9D20021F58D /* Other */,
+				3F3BAE832180A9CB0021F58D /* Models */,
+				3F3BAE822180A9C50021F58D /* Views */,
+				3F3BAE812180A9AD0021F58D /* View Controllers */,
+				3F3BAE532180A97F0021F58D /* AppDelegate.swift */,
+				3F3BAE572180A97F0021F58D /* Main.storyboard */,
+				3F3BAE5A2180A9880021F58D /* Assets.xcassets */,
+				3F3BAE5C2180A9880021F58D /* LaunchScreen.storyboard */,
+				3F3BAE5F2180A9880021F58D /* Info.plist */,
+			);
+			path = Attendance;
+			sourceTree = "<group>";
+		};
+		3F3BAE672180A9890021F58D /* AttendanceTests */ = {
+			isa = PBXGroup;
+			children = (
+				3F3BAE682180A9890021F58D /* AttendanceTests.swift */,
+				3F3BAE6A2180A9890021F58D /* Info.plist */,
+			);
+			path = AttendanceTests;
+			sourceTree = "<group>";
+		};
+		3F3BAE722180A9890021F58D /* AttendanceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3F3BAE732180A9890021F58D /* AttendanceUITests.swift */,
+				3F3BAE752180A9890021F58D /* Info.plist */,
+			);
+			path = AttendanceUITests;
+			sourceTree = "<group>";
+		};
+		3F3BAE812180A9AD0021F58D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F3BAE552180A97F0021F58D /* LezingTableViewController.swift */,
+				3FE797D6218883040045A4C4 /* AddEventTableViewController.swift */,
+				3F941B9A2189C1A9009F2AE6 /* LocationSearchTableViewController.swift */,
+				3F941BAB2189F9B1009F2AE6 /* AddGroupsTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3F3BAE822180A9C50021F58D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3F941BA72189F54E009F2AE6 /* GroupTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3F3BAE832180A9CB0021F58D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F3BAE8B2180ACA20021F58D /* Lezing.swift */,
+				3F941B982189C114009F2AE6 /* EventLocation.swift */,
+				3F941BA92189F858009F2AE6 /* Group.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3F3BAE842180A9D20021F58D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F3BAE4F2180A97F0021F58D /* Attendance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F3BAE782180A9890021F58D /* Build configuration list for PBXNativeTarget "Attendance" */;
+			buildPhases = (
+				3F3BAE4C2180A97F0021F58D /* Sources */,
+				3F3BAE4D2180A97F0021F58D /* Frameworks */,
+				3F3BAE4E2180A97F0021F58D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Attendance;
+			productName = Attendance;
+			productReference = 3F3BAE502180A97F0021F58D /* Attendance.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3F3BAE632180A9890021F58D /* AttendanceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F3BAE7B2180A9890021F58D /* Build configuration list for PBXNativeTarget "AttendanceTests" */;
+			buildPhases = (
+				3F3BAE602180A9890021F58D /* Sources */,
+				3F3BAE612180A9890021F58D /* Frameworks */,
+				3F3BAE622180A9890021F58D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F3BAE662180A9890021F58D /* PBXTargetDependency */,
+			);
+			name = AttendanceTests;
+			productName = AttendanceTests;
+			productReference = 3F3BAE642180A9890021F58D /* AttendanceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3F3BAE6E2180A9890021F58D /* AttendanceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F3BAE7E2180A9890021F58D /* Build configuration list for PBXNativeTarget "AttendanceUITests" */;
+			buildPhases = (
+				3F3BAE6B2180A9890021F58D /* Sources */,
+				3F3BAE6C2180A9890021F58D /* Frameworks */,
+				3F3BAE6D2180A9890021F58D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F3BAE712180A9890021F58D /* PBXTargetDependency */,
+			);
+			name = AttendanceUITests;
+			productName = AttendanceUITests;
+			productReference = 3F3BAE6F2180A9890021F58D /* AttendanceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F3BAE482180A97F0021F58D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Tijs Fertinel";
+				TargetAttributes = {
+					3F3BAE4F2180A97F0021F58D = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					3F3BAE632180A9890021F58D = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 3F3BAE4F2180A97F0021F58D;
+					};
+					3F3BAE6E2180A9890021F58D = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 3F3BAE4F2180A97F0021F58D;
+					};
+				};
+			};
+			buildConfigurationList = 3F3BAE4B2180A97F0021F58D /* Build configuration list for PBXProject "Attendance" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3F3BAE472180A97F0021F58D;
+			productRefGroup = 3F3BAE512180A97F0021F58D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F3BAE4F2180A97F0021F58D /* Attendance */,
+				3F3BAE632180A9890021F58D /* AttendanceTests */,
+				3F3BAE6E2180A9890021F58D /* AttendanceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F3BAE4E2180A97F0021F58D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F3BAE5E2180A9880021F58D /* LaunchScreen.storyboard in Resources */,
+				3F3BAE5B2180A9880021F58D /* Assets.xcassets in Resources */,
+				3F3BAE592180A97F0021F58D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F3BAE622180A9890021F58D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F3BAE6D2180A9890021F58D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F3BAE4C2180A97F0021F58D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F941BA82189F54E009F2AE6 /* GroupTableViewCell.swift in Sources */,
+				3F3BAE562180A97F0021F58D /* LezingTableViewController.swift in Sources */,
+				3F3BAE542180A97F0021F58D /* AppDelegate.swift in Sources */,
+				3F941BAA2189F858009F2AE6 /* Group.swift in Sources */,
+				3F941B992189C114009F2AE6 /* EventLocation.swift in Sources */,
+				3FE797D7218883040045A4C4 /* AddEventTableViewController.swift in Sources */,
+				3F941B9B2189C1A9009F2AE6 /* LocationSearchTableViewController.swift in Sources */,
+				3F941BAC2189F9B1009F2AE6 /* AddGroupsTableViewController.swift in Sources */,
+				3F3BAE8C2180ACA20021F58D /* Lezing.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F3BAE602180A9890021F58D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F3BAE692180A9890021F58D /* AttendanceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F3BAE6B2180A9890021F58D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F3BAE742180A9890021F58D /* AttendanceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F3BAE662180A9890021F58D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F3BAE4F2180A97F0021F58D /* Attendance */;
+			targetProxy = 3F3BAE652180A9890021F58D /* PBXContainerItemProxy */;
+		};
+		3F3BAE712180A9890021F58D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F3BAE4F2180A97F0021F58D /* Attendance */;
+			targetProxy = 3F3BAE702180A9890021F58D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3F3BAE572180A97F0021F58D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F3BAE582180A97F0021F58D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3F3BAE5C2180A9880021F58D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F3BAE5D2180A9880021F58D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F3BAE762180A9890021F58D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3F3BAE772180A9890021F58D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F3BAE792180A9890021F58D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Attendance/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = be.hogent.Attendance;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3F3BAE7A2180A9890021F58D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Attendance/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = be.hogent.Attendance;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3F3BAE7C2180A9890021F58D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AttendanceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = be.hogent.AttendanceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Attendance.app/Attendance";
+			};
+			name = Debug;
+		};
+		3F3BAE7D2180A9890021F58D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AttendanceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = be.hogent.AttendanceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Attendance.app/Attendance";
+			};
+			name = Release;
+		};
+		3F3BAE7F2180A9890021F58D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AttendanceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = be.hogent.AttendanceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Attendance;
+			};
+			name = Debug;
+		};
+		3F3BAE802180A9890021F58D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AttendanceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = be.hogent.AttendanceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Attendance;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F3BAE4B2180A97F0021F58D /* Build configuration list for PBXProject "Attendance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F3BAE762180A9890021F58D /* Debug */,
+				3F3BAE772180A9890021F58D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F3BAE782180A9890021F58D /* Build configuration list for PBXNativeTarget "Attendance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F3BAE792180A9890021F58D /* Debug */,
+				3F3BAE7A2180A9890021F58D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F3BAE7B2180A9890021F58D /* Build configuration list for PBXNativeTarget "AttendanceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F3BAE7C2180A9890021F58D /* Debug */,
+				3F3BAE7D2180A9890021F58D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F3BAE7E2180A9890021F58D /* Build configuration list for PBXNativeTarget "AttendanceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F3BAE7F2180A9890021F58D /* Debug */,
+				3F3BAE802180A9890021F58D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F3BAE482180A97F0021F58D /* Project object */;
+}
