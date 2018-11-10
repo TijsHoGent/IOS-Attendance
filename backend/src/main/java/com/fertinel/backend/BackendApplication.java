@@ -12,6 +12,10 @@ import com.fertinel.backend.repository.GroupRepository;
 import com.fertinel.backend.repository.LezingRepository;
 import com.fertinel.backend.service.LezingService;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
+
 @SpringBootApplication
 public class BackendApplication implements CommandLineRunner{
 
@@ -34,7 +38,9 @@ public class BackendApplication implements CommandLineRunner{
 		Lezing l1 = new Lezing();
 		l1.setName("Lezing A");
 		l1.setDescription("Description of A");
-		
+		l1.setStartDateTime(LocalDateTime.of(2019, Month.NOVEMBER, 15, 15,00,00));
+		l1.setEndTime(LocalTime.of(16,45,00));
+
 		Group g1 = new Group();
 		g1.setGroupName("Group A");
 	

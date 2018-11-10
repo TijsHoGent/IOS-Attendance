@@ -1,5 +1,8 @@
 package com.fertinel.backend.data;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -31,6 +34,12 @@ public class Lezing {
 
 	@Column
 	private String description;
+
+	@Column
+	private LocalDateTime startDateTime;
+
+	@Column
+	private LocalTime endTime;
 
     @ManyToMany(fetch = FetchType.LAZY ,cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "group_lezing", 
@@ -73,5 +82,19 @@ public class Lezing {
 		this.groups = groups;
 	}
 
-	
+	public LocalDateTime getStartDateTime() {
+		return startDateTime;
+	}
+
+	public void setStartDateTime(LocalDateTime startDateTime) {
+		this.startDateTime = startDateTime;
+	}
+
+	public LocalTime getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(LocalTime endTime) {
+		this.endTime = endTime;
+	}
 }
