@@ -24,25 +24,25 @@ import com.fertinel.backend.service.LezingService;
 public class LezingController {
 
 	@Autowired
-	private LezingService lezingService;
+	private LezingRepository lezingRepository;
 	
 	@Autowired
 	private GroupRepository groupRepository;
 	
 	@GetMapping("/lezingen")
-	public @ResponseBody List<LezingDTO> getAll() {
-		return lezingService.getAll();
+	public @ResponseBody List<Lezing> getAll() {
+		return lezingRepository.findAll();
 	}
 	
 	@GetMapping("/lezingen/{id}")
-	public @ResponseBody LezingDTO getLezing(@PathVariable("id") int id) {
-		return lezingService.lezingById(id);
+	public @ResponseBody Lezing getLezing(@PathVariable("id") int id) {
+		return lezingRepository.findById(id).get();
 		
 	}
 	
 	@PostMapping("/lezingen/add")
 	public Lezing newLezing(@RequestBody Lezing l) {
-		lezingService.save(l);
+		lezingRepository.save(l);
 		return l;
 	}
 	
