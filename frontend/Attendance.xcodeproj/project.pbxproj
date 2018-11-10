@@ -111,7 +111,6 @@
 		3F3BAE522180A97F0021F58D /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
-				3F3BAE842180A9D20021F58D /* Other */,
 				3F3BAE832180A9CB0021F58D /* Models */,
 				3F3BAE822180A9C50021F58D /* Views */,
 				3F3BAE812180A9AD0021F58D /* View Controllers */,
@@ -169,13 +168,6 @@
 				3F941BA92189F858009F2AE6 /* Group.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		3F3BAE842180A9D20021F58D /* Other */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
