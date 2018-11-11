@@ -1,5 +1,7 @@
 package com.fertinel.backend.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -8,18 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity(name = "Lezing")
 @Table(name = "lezingen")
@@ -40,6 +31,11 @@ public class Lezing {
 
 	@Column
 	private LocalTime endTime;
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@MapsId
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private EventLocation eventLocation;
 
     @ManyToMany(fetch = FetchType.LAZY ,cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "group_lezing", 
@@ -96,5 +92,13 @@ public class Lezing {
 
 	public void setEndTime(LocalTime endTime) {
 		this.endTime = endTime;
+	}
+
+	public EventLocation getEventLocation() {
+		return eventLocation;
+	}
+
+	public void setEventLocation(EventLocation eventLocation) {
+		this.eventLocation = eventLocation;
 	}
 }

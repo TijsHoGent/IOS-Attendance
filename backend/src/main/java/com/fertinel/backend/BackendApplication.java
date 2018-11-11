@@ -1,5 +1,6 @@
 package com.fertinel.backend;
 
+import com.fertinel.backend.data.EventLocation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -41,13 +42,19 @@ public class BackendApplication implements CommandLineRunner{
 		l1.setStartDateTime(LocalDateTime.of(2019, Month.NOVEMBER, 15, 15,00,00));
 		l1.setEndTime(LocalTime.of(16,45,00));
 
+		EventLocation location = new EventLocation();
+		location.setLocation("Ghent");
+		location.setLocationName("Hogent schoonmeerschen");
+		location.setLongitude(3.7018883228302002);
+		location.setLatitude(51.03134887142105);
+
+
 		Group g1 = new Group();
 		g1.setGroupName("Group A");
 	
 		l1.getGroups().add(g1);
-		
+		l1.setEventLocation(location);
 		g1.getLezingen().add(l1);
-		
 		lezingService.save(l1);
 	}
 }
