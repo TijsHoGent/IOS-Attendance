@@ -10,17 +10,24 @@ import UIKit
 
 class AddGroupsTableViewController: UITableViewController {
 
-    var groups: [Group] = [
-        Group(groupName: "Group A"),
-        Group(groupName: "Group B"),
-        Group(groupName: "Group C"),
-        Group(groupName: "Group D")
-        ]
+    var groups: [Group] = []
     
     var selectedGroups: [Group] = []
     
+    @IBOutlet var groupsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        LezingService.fetchAllGroups { (groups) in
+            if let groups = groups {
+                self.groups = groups
+            } else {
+                self.groups = []
+            }
+            DispatchQueue.main.async {
+                self.groupsTableView.reloadData()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

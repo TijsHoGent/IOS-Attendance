@@ -8,9 +8,18 @@
 
 import Foundation
 
-struct Group {
+struct Group: Codable {
     
     var groupName: String
+    
+    enum GroupKeys : String, CodingKey{
+        case groupName
+    }
+    
+    init(from decoder: Decoder) throws {
+        let valueContainer = try decoder.container(keyedBy: GroupKeys.self)
+        self.groupName = try valueContainer.decode(String.self, forKey: .groupName)
+    }
     
     init(groupName: String) {
         self.groupName = groupName

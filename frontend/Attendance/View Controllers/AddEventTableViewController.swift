@@ -53,19 +53,27 @@ class AddEventTableViewController: UITableViewController {
     var location: EventLocation?
     var groups: [String] = []
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let selected = lezing {
+            navigationItem.backBarButtonItem?.title = "Update"
             nameTextfield.text = selected.title
             descriptionTextfield.text = selected.description
-            startDatePicker.setDate(selected.startDate, animated: true)
             locationLabel.text = selected.location?.locationName
+            if let startDateTime = selected.startDate, let endTime = selected.endDate {
+                startDatePicker.setDate(startDateTime, animated: true)
+                endDatePicker.setDate(endTime, animated: true)
+            }
+            if let groups = selected.groups {
+                groupTableViewCell.groups = groups
+                groupTableViewCell.reload()
+            }
+            //locationLabel.text = selected.location?.locationName
         }
     }
 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -65,8 +65,8 @@ class LocationSearchTableViewController: UITableViewController, UISearchResultsU
     func search(text: String) {
         let request = MKLocalSearchRequest()
         let locationManager = CLLocationManager()
-        guard let coordinate = locationManager.location?.coordinate else {return}
-        request.region = MKCoordinateRegionMakeWithDistance(coordinate, 3200, 3200)
+        //guard let coordinate = locationManager.location?.coordinate else {return}
+        //request.region = MKCoordinateRegionMakeWithDistance(coordinate, 3200, 3200)
         request.naturalLanguageQuery = text
         
         MKLocalSearch(request: request).start {
@@ -78,7 +78,7 @@ class LocationSearchTableViewController: UITableViewController, UISearchResultsU
             let locationResponses: [MKMapItem] = response.mapItems
             self.locations = []
             for location in locationResponses {
-                let eventLocation: EventLocation = EventLocation(locationName: location.name!, location: location.placemark.locality!)
+                let eventLocation: EventLocation = EventLocation(locationName: location.name!, location: location.placemark.locality!, longitude: location.placemark.coordinate.longitude, latitude: location.placemark.coordinate.latitude)
                 self.locations.append(eventLocation)
             }
              self.locationTableView.reloadData()

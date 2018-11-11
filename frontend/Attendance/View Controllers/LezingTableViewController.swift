@@ -17,17 +17,17 @@ class LezingTableViewController: UITableViewController {
     }
     var lezingen: [Lezing] = []
     
+    let lezingService: LezingService = LezingService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        lezingen = [
-            Lezing(title: "lezing", description: "lezing A", startDate: Date(), endDate: Date()),
-            Lezing(title: "lezing b", description: "lezing b", startDate: Date(), endDate: Date()),
-            Lezing(title: "lezing c", description: "lezing A", startDate: Date(), endDate: Date())
-        ]
-        
+        lezingService.fetchAllLezingen { (lezingen) in
+            self.lezingen = lezingen!
+            DispatchQueue.main.async {
+                self.lezingenTableView.reloadData()
+            }
+        }
     }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -35,10 +35,7 @@ class LezingTableViewController: UITableViewController {
     
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(section == 0) {
-            return lezingen.count
-        }
-        return 0
+        return lezingen.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,9 +54,15 @@ class LezingTableViewController: UITableViewController {
         } 
     }
 
+    func updateUI(with lezingen: [Lezing]) {
+        self.lezingen = lezingen
+    }
+    
     func saveLezingen() {}
 
-    func loadLezingen() {}
+    func loadLezingen() {
+        
+    }
 
 }
 

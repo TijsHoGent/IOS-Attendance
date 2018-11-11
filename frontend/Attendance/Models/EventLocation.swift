@@ -7,13 +7,34 @@
 //
 
 import Foundation
+import MapKit
 
-struct EventLocation {
-    var locationName: String!
-    var location: String!
+struct EventLocation :Codable{
+    var locationName: String
+    var location: String
     
-    init(locationName:String, location: String) {
+    var longitude: Double
+    var latitude: Double
+    
+    enum LocationKeys: String, CodingKey {
+        case locationName
+        case location
+        case longitude
+        case latitude
+    }
+    
+    init(from decoder: Decoder) throws {
+        let valueContainer = try decoder.container(keyedBy: LocationKeys.self)
+        self.locationName = try valueContainer.decode(String.self, forKey: .locationName)
+        self.location = try valueContainer.decode(String.self, forKey: .location)
+        self.longitude = try valueContainer.decode(Double.self, forKey: .longitude)
+        self.latitude = try valueContainer.decode(Double.self, forKey: .latitude)
+    }
+    
+    init(locationName:String, location: String, longitude: Double, latitude:Double) {
         self.locationName = locationName
         self.location = location
+        self.longitude = longitude
+        self.latitude = latitude
     }
 }
