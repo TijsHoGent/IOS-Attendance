@@ -5,56 +5,63 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fertinel.backend.data.Group;
 import com.fertinel.backend.data.Lezing;
-import com.fertinel.backend.data.dto.LezingDTO;
+import com.fertinel.backend.repository.EventLocationRepository;
 import com.fertinel.backend.repository.GroupRepository;
 import com.fertinel.backend.repository.LezingRepository;
-import com.fertinel.backend.service.LezingService;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.Month;
+import java.util.HashSet;
+import java.util.Set;
 
 @SpringBootApplication
 public class BackendApplication implements CommandLineRunner{
 
 	@Autowired
-	private LezingService lezingService;
+	private LezingRepository lezingRepository;
 	
 	@Autowired 
 	private GroupRepository groupRepository;
 	
+	@Autowired
+	private EventLocationRepository eventLocationRepository;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
 	}
-	
+	@Transactional
 	@Override
 	public void run(String...args) throws Exception {
 	
-		groupRepository.deleteAllInBatch();
-		
 		// create a lezing
-		Lezing l1 = new Lezing();
-		l1.setName("Lezing A");
-		l1.setDescription("Description of A");
-		l1.setStartDateTime(LocalDateTime.of(2019, Month.NOVEMBER, 15, 15,00,00));
-		l1.setEndTime(LocalTime.of(16,45,00));
-
-		EventLocation location = new EventLocation();
-		location.setLocation("Ghent");
-		location.setLocationName("Hogent schoonmeerschen");
-		location.setLongitude(3.7018883228302002);
-		location.setLatitude(51.03134887142105);
+		Lezing l1 = new Lezing(1,"Lezing A", "Description of A", LocalDateTime.of(2019, Month.NOVEMBER, 15, 15,00,00), LocalDateTime.of(2019, Month.NOVEMBER, 16, 16,45, 00));
+		Lezing l2 = new Lezing(2,"Lezing B", "Description of B", LocalDateTime.of(2019, Month.NOVEMBER, 16, 15,00,00), LocalDateTime.of(2019, Month.NOVEMBER, 16, 16,45, 00));
 
 
-		Group g1 = new Group();
-		g1.setGroupName("Group A");
+		lezingRepository.save(l1);
+		lezingRepository.save(l2);
+		
+		Group groupA = new Group(1,"Group A");
+		Group groupB = new Group(2, "Group B");
+		
+		
+		EventLocation location = new EventLocation("Ghent", "Hogent Schoonmeerschen", 3.7018883228302002, 51.03134887142105);
 	
-		l1.getGroups().add(g1);
+		
 		l1.setEventLocation(location);
-		g1.getLezingen().add(l1);
-		lezingService.save(l1);
+		l1.addGroup(groupA);
+		l1.addGroup(groupB);
+
+		l2.addGroup(groupA);
+		l2.setEventLocation(location);
+
+
+		lezingRepository.save(l1);
+		lezingRepository.save(l2);
+
 	}
 }

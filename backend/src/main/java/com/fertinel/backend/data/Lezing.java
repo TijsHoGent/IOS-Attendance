@@ -1,6 +1,8 @@
 package com.fertinel.backend.data;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -17,7 +19,6 @@ import javax.persistence.*;
 public class Lezing {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int lezingID;
 
 	@Column
@@ -27,14 +28,15 @@ public class Lezing {
 	private String description;
 
 	@Column
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime startDateTime;
 
 	@Column
-	private LocalTime endTime;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private LocalDateTime endTime;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@MapsId
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "location_id")
 	private EventLocation eventLocation;
 
     @ManyToMany(fetch = FetchType.LAZY ,cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -45,6 +47,27 @@ public class Lezing {
 
 	public Lezing() {
 	}
+
+	public Lezing(int id, String name, String description, LocalDateTime startDateTime, LocalDateTime endTime) {
+		this.lezingID = id;
+		this.name = name;
+		this.description = description;
+		this.startDateTime = startDateTime;
+		this.endTime = endTime;
+	}
+
+
+
+	public Lezing(String name, String description, LocalDateTime startDateTime, LocalDateTime endTime,
+			EventLocation eventLocation, Set<Group> groups) {
+		this.name = name;
+		this.description = description;
+		this.startDateTime = startDateTime;
+		this.endTime = endTime;
+		this.eventLocation = eventLocation;
+		this.groups = groups;
+	}
+
 
 	public int getLezingID() {
 		return lezingID;
@@ -70,12 +93,24 @@ public class Lezing {
 		this.description = description;
 	}
 
+	public void addGroup(Group g) {
+		this.groups.add(g);
+		g.getLezingen().add(this);
+	}
+	
+	public void removeGroup(Group g) {
+		this.groups.remove(g);
+		g.getLezingen().remove(this);
+	}
+	
+	public void remove() {
+		for(Group g: new HashSet<>(groups)) {
+			removeGroup(g);
+		}
+	}
+	
 	public Set<Group> getGroups() {
 		return groups;
-	}
-
-	public void setGroups(Set<Group> groups) {
-		this.groups = groups;
 	}
 
 	public LocalDateTime getStartDateTime() {
@@ -86,11 +121,11 @@ public class Lezing {
 		this.startDateTime = startDateTime;
 	}
 
-	public LocalTime getEndTime() {
+	public LocalDateTime getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(LocalTime endTime) {
+	public void setEndTime(LocalDateTime endTime) {
 		this.endTime = endTime;
 	}
 
@@ -100,5 +135,6 @@ public class Lezing {
 
 	public void setEventLocation(EventLocation eventLocation) {
 		this.eventLocation = eventLocation;
+		eventLocation.addLezing(this);
 	}
 }

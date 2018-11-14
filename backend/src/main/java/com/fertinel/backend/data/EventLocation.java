@@ -1,6 +1,11 @@
 package com.fertinel.backend.data;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "EventLocations")
@@ -19,11 +24,37 @@ public class EventLocation {
     @Column
     private double latitude;
 
+    @OneToMany(fetch=FetchType.LAZY, cascade = {CascadeType.PERSIST})
+    @JoinColumn(name="fk_lezing")
+    @JsonIgnore
+    private Set<Lezing> lezingen = new HashSet<>();
 
     public EventLocation() {
     }
+    
 
-    public int getId() {
+    public EventLocation(String locationName, String location, double longitude, double latitude) {
+
+		this.locationName = locationName;
+		this.location = location;
+		this.longitude = longitude;
+		this.latitude = latitude;
+	}
+
+
+
+	public EventLocation(String locationName, String location, double longitude, double latitude,
+			Set<Lezing> lezingen) {
+
+		this.locationName = locationName;
+		this.location = location;
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.lezingen = lezingen;
+	}
+
+
+	public int getId() {
         return id;
     }
 
@@ -62,4 +93,13 @@ public class EventLocation {
     public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
+
+	public Set<Lezing> getLezingen() {
+		return lezingen;
+	}
+
+	public void addLezing(Lezing l) {
+		this.lezingen.add(l);
+	}
+    
 }
