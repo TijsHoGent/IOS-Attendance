@@ -331,8 +331,13 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
             endingLineNumber = "56"
+<<<<<<< HEAD
             landmarkName = "unknown"
             landmarkType = "0">
+=======
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+>>>>>>> e140bffac99dc1b8e8dcd07fce2f04e702652521
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -475,8 +480,13 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
             endingLineNumber = "24"
+<<<<<<< HEAD
             landmarkName = "unknown"
             landmarkType = "0">
+=======
+            landmarkName = "unwindToEventsTableViewController(segue:)"
+            landmarkType = "7">
+>>>>>>> e140bffac99dc1b8e8dcd07fce2f04e702652521
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -491,8 +501,13 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
             endingLineNumber = "45"
+<<<<<<< HEAD
             landmarkName = "unknown"
             landmarkType = "0">
+=======
+            landmarkName = "unwindToEventsTableViewController(segue:)"
+            landmarkType = "7">
+>>>>>>> e140bffac99dc1b8e8dcd07fce2f04e702652521
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -523,8 +538,13 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
             endingLineNumber = "35"
+<<<<<<< HEAD
             landmarkName = "unknown"
             landmarkType = "0">
+=======
+            landmarkName = "unwindToEventsTableViewController(segue:)"
+            landmarkType = "7">
+>>>>>>> e140bffac99dc1b8e8dcd07fce2f04e702652521
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -539,8 +559,13 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
+<<<<<<< HEAD
             landmarkName = "unknown"
             landmarkType = "0">
+=======
+            landmarkName = "unwindToEventsTableViewController(segue:)"
+            landmarkType = "7">
+>>>>>>> e140bffac99dc1b8e8dcd07fce2f04e702652521
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -555,8 +580,13 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
+<<<<<<< HEAD
             landmarkName = "unknown"
             landmarkType = "0">
+=======
+            landmarkName = "unwindToEventsTableViewController(segue:)"
+            landmarkType = "7">
+>>>>>>> e140bffac99dc1b8e8dcd07fce2f04e702652521
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -571,8 +601,13 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
+<<<<<<< HEAD
             landmarkName = "unknown"
             landmarkType = "0">
+=======
+            landmarkName = "unwindToEventsTableViewController(segue:)"
+            landmarkType = "7">
+>>>>>>> e140bffac99dc1b8e8dcd07fce2f04e702652521
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
