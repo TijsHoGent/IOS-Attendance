@@ -37,4 +37,8 @@ struct EventLocation :Codable{
         self.longitude = longitude
         self.latitude = latitude
     }
+    
+    static func defaultLocation() -> EventLocation {
+        return EventLocation(locationName: "Hogeschool Gent", location: "Gent", longitude: 50.00, latitude: 26.00)
+    }
 }

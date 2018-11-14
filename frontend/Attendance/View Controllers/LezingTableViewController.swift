@@ -9,7 +9,7 @@
 import UIKit
 
 class LezingTableViewController: UITableViewController {
-
+    
     @IBOutlet var lezingenTableView: UITableView!
     
     @IBAction func addEventPressed(_ sender: UIBarButtonItem) {
@@ -18,29 +18,30 @@ class LezingTableViewController: UITableViewController {
     
     @IBAction func unwindToEventsTableViewController(segue: UIStoryboardSegue) {
         if segue.identifier == "saveEvent" {
+            
             let controller = segue.source as! AddEventTableViewController
-            if let lezing = controller.lezing {
-                //updateLezing(with: lezing)
+            
+            guard controller.nameTextfield.text != nil else {return}
+            guard controller.descriptionTextfield.text != nil else {return}
+            //guard controller.location != nil else {return}
+            
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            
+            let name = controller.nameTextfield.text!
+            let description = controller.descriptionTextfield.text!
+            let startDateTime = controller.startDatePicker.date
+            let endTime = controller.endDatePicker.date
+            let location = controller.location!
+            let groups: [Group] = controller.groupTableViewCell.groups
+            
+            var lezing = Lezing(lezingID: lezingen.count + 1, title: name, description: description, startDate: startDateTime, endDate: endTime, location: location, groups: groups)
+            if let selectedIndexPath = lezingenTableView.indexPathForSelectedRow {
+                lezing.lezingID = lezingen[selectedIndexPath.row].lezingID
+                updateLezing(with: lezing)
             } else {
-                guard controller.nameTextfield.text != nil else {return}
-                guard controller.descriptionTextfield.text != nil else {return}
-                //guard controller.location != nil else {return}
-                
-                let formatter = DateFormatter()
-                formatter.dateStyle = .medium
-                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                
-                let name = controller.nameTextfield.text!
-                let description = controller.descriptionTextfield.text!
-                let startDateTime = controller.startDatePicker.date
-                let endTime = controller.endDatePicker.date
-                let location = controller.location!
-                let groups: [Group] = controller.groupTableViewCell.groups
-                
-                let lezing = Lezing(lezingID: lezingen.count + 1, title: name, description: description, startDate: startDateTime, endDate: endTime, location: location, groups: groups)
-                
                 saveLezing(lezing: lezing)
-                
             }
         } else {
             loadLezingen()
@@ -60,7 +61,7 @@ class LezingTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lezingen.count
     }
@@ -80,7 +81,7 @@ class LezingTableViewController: UITableViewController {
             addEventTableViewController.lezing = lezing
         } 
     }
-
+    
     func updateUI(with lezingen: [Lezing]) {
         self.lezingen = lezingen
     }
@@ -91,10 +92,13 @@ class LezingTableViewController: UITableViewController {
             self.loadLezingen()
         }
     }
-
+    
     func updateLezing(with lezing: Lezing) {
         //update lezingen hier
         //lezingService.update()...
+        lezingService.updateLezing(updated: lezing) { (lezing) in
+            self.loadLezingen()
+        }
     }
     
     func loadLezingen() {
@@ -109,4 +113,5 @@ class LezingTableViewController: UITableViewController {
     }
     
 }
+
 

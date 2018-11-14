@@ -136,4 +136,5 @@ public class Lezing {
 	public void setEventLocation(EventLocation e) {
 		this.eventLocation = e;
 	}
+	
 }

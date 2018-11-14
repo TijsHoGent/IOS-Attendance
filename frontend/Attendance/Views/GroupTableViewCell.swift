@@ -8,7 +8,15 @@
 
 import UIKit
 
-class GroupTableViewCell: UITableViewCell {
+class GroupTableViewCell: UITableViewCell, SingleGroupCellDelegate {
+    
+    func groupRemovePressed(sender: SingleGroupCell) {
+        self.groups.removeAll(where: {$0.groupName == sender.groupName.text!})
+        self.reload()
+        delegate?.groupsUpdated(sender: self)
+    }
+    
+    var delegate: GroupTableViewCellDelegate?
 
     @IBOutlet weak var groupTableView: UITableView!
     
@@ -27,7 +35,10 @@ class GroupTableViewCell: UITableViewCell {
     func reload() {
         groupTableView.reloadData()
     }
+}
 
+@objc protocol GroupTableViewCellDelegate : class {
+    func groupsUpdated(sender: GroupTableViewCell)
 }
 
 extension GroupTableViewCell: UITableViewDataSource {
@@ -40,9 +51,9 @@ extension GroupTableViewCell: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
-    
-            cell.textLabel?.text = groups[indexPath.row].groupName
+        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! SingleGroupCell
+            cell.delegate = self
+            cell.groupName?.text = groups[indexPath.row].groupName
         
         return cell
     }

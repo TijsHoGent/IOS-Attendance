@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddEventTableViewController: UITableViewController {
+class AddEventTableViewController: UITableViewController, GroupTableViewCellDelegate {
 
    
     @IBOutlet weak var nameTextfield: UITextField!
@@ -33,7 +33,7 @@ class AddEventTableViewController: UITableViewController {
             let sourceController = segue.source as! LocationSearchTableViewController
             
             if let selected = sourceController.selectedLocation {
-                self.locationLabel.text = selected.locationName
+                self.locationLabel.text = selected.location
                 self.location = selected
             }
         } else if segue.identifier == "doneGroupSegue"{
@@ -53,6 +53,11 @@ class AddEventTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let selected = lezing {
+            if let location = selected.eventLocation {
+                self.location = location
+            } else {
+                self.location = EventLocation.defaultLocation()
+            }
             navigationItem.rightBarButtonItem?.title = "Update" 
             nameTextfield.text = selected.name
             descriptionTextfield.text = selected.description
@@ -70,10 +75,16 @@ class AddEventTableViewController: UITableViewController {
     }
 
     
+    func groupsUpdated(sender: GroupTableViewCell) {
+        self.lezing?.groups = sender.groups
+ 
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+   
     
 }
