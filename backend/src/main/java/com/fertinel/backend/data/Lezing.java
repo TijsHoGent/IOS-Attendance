@@ -35,7 +35,7 @@ public class Lezing {
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime endTime;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name = "location_id")
 	private EventLocation eventLocation;
 
@@ -133,8 +133,7 @@ public class Lezing {
 		return eventLocation;
 	}
 
-	public void setEventLocation(EventLocation eventLocation) {
-		this.eventLocation = eventLocation;
-		eventLocation.addLezing(this);
+	public void setEventLocation(EventLocation e) {
+		this.eventLocation = e;
 	}
 }

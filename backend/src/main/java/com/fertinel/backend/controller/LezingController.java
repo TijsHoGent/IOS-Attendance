@@ -50,6 +50,7 @@ public class LezingController {
 	public Lezing newLezing(@RequestBody Lezing l) {
 		
 		Lezing newLezing = new Lezing((int) lezingRepository.count() + 1,l.getName(), l.getDescription(), l.getStartDateTime(), l.getEndTime());
+		
 		newLezing.setEventLocation(l.getEventLocation());
 		l.getGroups().forEach(g -> {
 			Optional<Group> dbGroup = groupRepository.findById(g.getGroupID());

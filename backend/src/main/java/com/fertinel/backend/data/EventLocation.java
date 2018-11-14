@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class EventLocation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
@@ -23,11 +23,6 @@ public class EventLocation {
     private double longitude;
     @Column
     private double latitude;
-
-    @OneToMany(fetch=FetchType.LAZY, cascade = {CascadeType.PERSIST})
-    @JoinColumn(name="fk_lezing")
-    @JsonIgnore
-    private Set<Lezing> lezingen = new HashSet<>();
 
     public EventLocation() {
     }
@@ -50,7 +45,6 @@ public class EventLocation {
 		this.location = location;
 		this.longitude = longitude;
 		this.latitude = latitude;
-		this.lezingen = lezingen;
 	}
 
 
@@ -94,12 +88,5 @@ public class EventLocation {
         this.latitude = latitude;
     }
 
-	public Set<Lezing> getLezingen() {
-		return lezingen;
-	}
-
-	public void addLezing(Lezing l) {
-		this.lezingen.add(l);
-	}
-    
+	
 }

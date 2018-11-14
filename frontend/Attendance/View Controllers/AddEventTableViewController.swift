@@ -13,8 +13,8 @@ class AddEventTableViewController: UITableViewController {
    
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var descriptionTextfield: UITextField!
-    
     @IBOutlet weak var startDatePicker: UIDatePicker!
+    
     @IBOutlet weak var endDatePicker: UIDatePicker!
     
     @IBOutlet weak var locationLabel: UILabel!
@@ -34,7 +34,7 @@ class AddEventTableViewController: UITableViewController {
             
             if let selected = sourceController.selectedLocation {
                 self.locationLabel.text = selected.locationName
-                self.lezing?.location = selected
+                self.location = selected
             }
         } else if segue.identifier == "doneGroupSegue"{
             let sourceController = segue.source as! AddGroupsTableViewController
@@ -44,9 +44,6 @@ class AddEventTableViewController: UITableViewController {
         } else {
             return
         }
-        
-    
-        
     }
     
     var lezing: Lezing?
@@ -56,11 +53,11 @@ class AddEventTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let selected = lezing {
-            navigationItem.backBarButtonItem?.title = "Update"
-            nameTextfield.text = selected.title
+            navigationItem.rightBarButtonItem?.title = "Update" 
+            nameTextfield.text = selected.name
             descriptionTextfield.text = selected.description
-            locationLabel.text = selected.location?.locationName
-            if let startDateTime = selected.startDate, let endTime = selected.endDate {
+            locationLabel.text = selected.eventLocation?.locationName
+            if let startDateTime = selected.startDateTime, let endTime = selected.endTime {
                 startDatePicker.setDate(startDateTime, animated: true)
                 endDatePicker.setDate(endTime, animated: true)
             }

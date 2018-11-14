@@ -48,20 +48,21 @@ public class BackendApplication implements CommandLineRunner{
 		Group groupA = new Group(1,"Group A");
 		Group groupB = new Group(2, "Group B");
 		
+		l1.addGroup(groupA);
+		l1.addGroup(groupB);
+
+		l2.addGroup(groupA);
 		
 		EventLocation location = new EventLocation("Ghent", "Hogent Schoonmeerschen", 3.7018883228302002, 51.03134887142105);
 	
 		
 		l1.setEventLocation(location);
-		l1.addGroup(groupA);
-		l1.addGroup(groupB);
-
-		l2.addGroup(groupA);
 		l2.setEventLocation(location);
-
-
+		
 		lezingRepository.save(l1);
 		lezingRepository.save(l2);
+		
+
 
 	}
 }

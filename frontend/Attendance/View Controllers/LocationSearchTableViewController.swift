@@ -78,6 +78,8 @@ class LocationSearchTableViewController: UITableViewController, UISearchResultsU
             let locationResponses: [MKMapItem] = response.mapItems
             self.locations = []
             for location in locationResponses {
+                guard location.name != nil else {return}
+                guard location.placemark.locality != nil else {return}
                 let eventLocation: EventLocation = EventLocation(locationName: location.name!, location: location.placemark.locality!, longitude: location.placemark.coordinate.longitude, latitude: location.placemark.coordinate.latitude)
                 self.locations.append(eventLocation)
             }

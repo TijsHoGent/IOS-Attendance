@@ -176,7 +176,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="179.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jn-Nh-bqh">
+                                                <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="6jn-Nh-bqh">
                                                     <rect key="frame" x="0.0" y="29" width="375" height="151"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="562600982.03729904">
                                                         <!--2018-10-30 14:03:02 +0000-->
@@ -307,18 +307,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Event" id="Qh1-AQ-jr2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mUp-1D-7lt"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mUp-1D-7lt">
+                            <connections>
+                                <segue destination="cD3-nf-EwB" kind="unwind" identifier="saveEvent" unwindAction="unwindToEventsTableViewControllerWithSegue:" id="V8f-xM-k9s"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionTextfield" destination="oua-9H-9iH" id="mw1-lo-vyL"/>
-                        <outlet property="endDatePicker" destination="6jn-Nh-bqh" id="i7P-RW-KGe"/>
+                        <outlet property="endDatePicker" destination="6jn-Nh-bqh" id="uDe-ym-tY8"/>
                         <outlet property="groupTableViewCell" destination="wdO-qp-UVh" id="OnI-Xb-wmX"/>
                         <outlet property="locationLabel" destination="1aM-oJ-015" id="f5a-CF-snn"/>
                         <outlet property="nameTextfield" destination="amw-k0-o1e" id="Tbl-xT-7gY"/>
-                        <outlet property="startDatePicker" destination="fmD-XB-W1X" id="aOO-5L-AOj"/>
+                        <outlet property="startDatePicker" destination="fmD-XB-W1X" id="euD-9n-G3t"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpk-lj-6L6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cD3-nf-EwB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2541.5999999999999" y="-189.3553223388306"/>
         </scene>
