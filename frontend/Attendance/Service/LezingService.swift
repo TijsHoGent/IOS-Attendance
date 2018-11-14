@@ -10,6 +10,26 @@ import Foundation
 
 struct LezingService {
     
+    func doRequest(method: String, url: String, object: Lezing, whenParsed: @escaping (URLRequest, Data) -> Void) {
+        let baseURL = URL(string: url)!
+        var request = URLRequest(url: baseURL)
+        
+        request.httpMethod = method
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let encoder = JSONEncoder()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        encoder.dateEncodingStrategy = .formatted(dateFormatter)
+        
+        var jsonData = try? encoder.encode(object)
+        
+        request.httpBody = jsonData
+        whenParsed(request, jsonData!)
+        
+    }
+    
     func fetchAllLezingen(completion: @escaping ([Lezing]?) -> Void) {
         let baseUrl = URL(string: "http://127.0.0.1:8080/api/lezingen")!
         let task = URLSession.shared.dataTask(with: baseUrl) { (data, response, error) in
@@ -24,26 +44,25 @@ struct LezingService {
         task.resume()
     }
     
-    func addNewLezing(newLezing: Lezing, completion: @escaping (Lezing) -> Void) {
-        let baseURL = URL(string: "http://127.0.0.1:8080/api/lezingen/add")!
-        var request = URLRequest(url: baseURL)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let encoder = JSONEncoder()
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        encoder.dateEncodingStrategy = .formatted(dateFormatter)
-        
-        let jsonData = try? encoder.encode(newLezing)
-    
-        request.httpBody = jsonData
-        
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            print(String(bytes: data!, encoding: .utf8))
-            completion(newLezing)
+    func updateLezing(updated: Lezing, completion: @escaping (Lezing) -> Void) {
+        doRequest(method: "PUT", url: "http://127.0.0.1:8080/api/lezingen/\(updated.lezingID)", object: updated) { (request, jsonData) in
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                completion(updated)
+            }
+            task.resume()
         }
-        task.resume()
+    }
+    
+    func addNewLezing(newLezing: Lezing, completion: @escaping (Lezing) -> Void) {
+
+        
+        doRequest(method: "POST", url: "http://127.0.0.1:8080/api/lezingen/add", object: newLezing) { (request, jsonData) in
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                completion(newLezing)
+            }
+            task.resume()
+        }
+    
     }
     
     static func fetchAllGroups(completion: @escaping ([Group]?) -> Void) {

@@ -10,6 +10,14 @@ import UIKit
 
 class SingleGroupCell: UITableViewCell {
 
+    @IBOutlet weak var groupName: UILabel!
+    
+    @IBAction func removeGroupPressed(_ sender: Any) {
+        delegate?.groupRemovePressed(sender: self)
+    }
+    
+    var delegate: SingleGroupCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +29,8 @@ class SingleGroupCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+@objc protocol SingleGroupCellDelegate: class {
+    func groupRemovePressed(sender: SingleGroupCell)
 }

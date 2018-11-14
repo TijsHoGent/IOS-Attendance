@@ -21,6 +21,7 @@
 		3F941BA82189F54E009F2AE6 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F941BA72189F54E009F2AE6 /* GroupTableViewCell.swift */; };
 		3F941BAA2189F858009F2AE6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F941BA92189F858009F2AE6 /* Group.swift */; };
 		3F941BAC2189F9B1009F2AE6 /* AddGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F941BAB2189F9B1009F2AE6 /* AddGroupsTableViewController.swift */; };
+		3FC1C89C219C624C003F05DE /* SingleGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC1C89B219C624C003F05DE /* SingleGroupCell.swift */; };
 		3FE797D7218883040045A4C4 /* AddEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE797D6218883040045A4C4 /* AddEventTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		3F941BA72189F54E009F2AE6 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		3F941BA92189F858009F2AE6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		3F941BAB2189F9B1009F2AE6 /* AddGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupsTableViewController.swift; sourceTree = "<group>"; };
+		3FC1C89B219C624C003F05DE /* SingleGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGroupCell.swift; sourceTree = "<group>"; };
 		3FE797D6218883040045A4C4 /* AddEventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				3F941BA72189F54E009F2AE6 /* GroupTableViewCell.swift */,
+				3FC1C89B219C624C003F05DE /* SingleGroupCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				3F941BA82189F54E009F2AE6 /* GroupTableViewCell.swift in Sources */,
 				3F3BAE562180A97F0021F58D /* LezingTableViewController.swift in Sources */,
 				3F3BAE542180A97F0021F58D /* AppDelegate.swift in Sources */,
+				3FC1C89C219C624C003F05DE /* SingleGroupCell.swift in Sources */,
 				3F941BAA2189F858009F2AE6 /* Group.swift in Sources */,
 				3F941B992189C114009F2AE6 /* EventLocation.swift in Sources */,
 				3FE797D7218883040045A4C4 /* AddEventTableViewController.swift in Sources */,

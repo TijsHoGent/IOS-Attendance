@@ -6,10 +6,12 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -63,6 +65,20 @@ public class LezingController {
 		return newLezing;
 	}
 	
-	
+	@PutMapping("/lezingen/{id}") 
+	public ResponseEntity<Lezing> updateLezing(@PathVariable int id, @RequestBody Lezing lezing) {
+		
+		Optional<Lezing> dbLezing = lezingRepository.findById(id);
+		
+		if(!dbLezing.isPresent()) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		lezing.setLezingID(id);
+		
+		lezingRepository.save(lezing);
+		
+		return ResponseEntity.noContent().build();
+	}
 
 }
