@@ -23,6 +23,7 @@
 		3F941BAC2189F9B1009F2AE6 /* AddGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F941BAB2189F9B1009F2AE6 /* AddGroupsTableViewController.swift */; };
 		3FC1C89C219C624C003F05DE /* SingleGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC1C89B219C624C003F05DE /* SingleGroupCell.swift */; };
 		3FE797D7218883040045A4C4 /* AddEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE797D6218883040045A4C4 /* AddEventTableViewController.swift */; };
+		3FF6C64521A1816A00E838BB /* auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FF6C64421A1816A00E838BB /* auth0.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		3F941BAB2189F9B1009F2AE6 /* AddGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupsTableViewController.swift; sourceTree = "<group>"; };
 		3FC1C89B219C624C003F05DE /* SingleGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGroupCell.swift; sourceTree = "<group>"; };
 		3FE797D6218883040045A4C4 /* AddEventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventTableViewController.swift; sourceTree = "<group>"; };
+		3FF6C64421A1816A00E838BB /* auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = auth0.plist; path = ../../../Attendance/Attendance/auth0.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		3F3BAE522180A97F0021F58D /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
+				3FF6C64821A197EA00E838BB /* Authorization */,
 				3F81BD452197128C00F0A43A /* Service */,
 				3F3BAE832180A9CB0021F58D /* Models */,
 				3F3BAE822180A9C50021F58D /* Views */,
@@ -124,6 +127,7 @@
 				3F3BAE5A2180A9880021F58D /* Assets.xcassets */,
 				3F3BAE5C2180A9880021F58D /* LaunchScreen.storyboard */,
 				3F3BAE5F2180A9880021F58D /* Info.plist */,
+				3FF6C64421A1816A00E838BB /* auth0.plist */,
 			);
 			path = Attendance;
 			sourceTree = "<group>";
@@ -182,6 +186,13 @@
 				3F81BD4A2197244500F0A43A /* LezingService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		3FF6C64821A197EA00E838BB /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +302,7 @@
 				3F3BAE5E2180A9880021F58D /* LaunchScreen.storyboard in Resources */,
 				3F3BAE5B2180A9880021F58D /* Assets.xcassets in Resources */,
 				3F3BAE592180A97F0021F58D /* Main.storyboard in Resources */,
+				3FF6C64521A1816A00E838BB /* auth0.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

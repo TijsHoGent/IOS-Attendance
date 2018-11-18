@@ -23,7 +23,7 @@ struct LezingService {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         encoder.dateEncodingStrategy = .formatted(dateFormatter)
         
-        var jsonData = try? encoder.encode(object)
+        let jsonData = try? encoder.encode(object)
         
         request.httpBody = jsonData
         whenParsed(request, jsonData!)

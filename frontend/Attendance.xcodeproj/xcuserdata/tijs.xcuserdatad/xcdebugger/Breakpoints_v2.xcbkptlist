@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Attendance/View Controllers/LezingTableViewController.swift"
-            timestampString = "563898810.2907341"
+            timestampString = "563905323.120428"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
             endingLineNumber = "16"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "addEventPressed(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -326,18 +326,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Attendance/View Controllers/LezingTableViewController.swift"
-            timestampString = "563898810.294418"
+            timestampString = "563905323.203505"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
             endingLineNumber = "56"
-<<<<<<< HEAD
-            landmarkName = "unknown"
-            landmarkType = "0">
-=======
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
->>>>>>> e140bffac99dc1b8e8dcd07fce2f04e702652521
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -475,18 +470,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Attendance/View Controllers/LezingTableViewController.swift"
-            timestampString = "563898810.297532"
+            timestampString = "563905323.206843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
             endingLineNumber = "24"
-<<<<<<< HEAD
-            landmarkName = "unknown"
-            landmarkType = "0">
-=======
             landmarkName = "unwindToEventsTableViewController(segue:)"
             landmarkType = "7">
->>>>>>> e140bffac99dc1b8e8dcd07fce2f04e702652521
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -496,24 +486,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Attendance/View Controllers/LezingTableViewController.swift"
-            timestampString = "563898810.297796"
+            timestampString = "563905323.208469"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
             endingLineNumber = "45"
-<<<<<<< HEAD
-            landmarkName = "unknown"
-            landmarkType = "0">
-=======
             landmarkName = "unwindToEventsTableViewController(segue:)"
             landmarkType = "7">
->>>>>>> e140bffac99dc1b8e8dcd07fce2f04e702652521
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Attendance/Service/LezingService.swift"
@@ -533,18 +518,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Attendance/View Controllers/LezingTableViewController.swift"
-            timestampString = "563898810.298071"
+            timestampString = "563905323.209963"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
             endingLineNumber = "35"
-<<<<<<< HEAD
-            landmarkName = "unknown"
-            landmarkType = "0">
-=======
             landmarkName = "unwindToEventsTableViewController(segue:)"
             landmarkType = "7">
->>>>>>> e140bffac99dc1b8e8dcd07fce2f04e702652521
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -554,18 +534,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Attendance/View Controllers/LezingTableViewController.swift"
-            timestampString = "563898810.298247"
+            timestampString = "563905323.2113889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
-<<<<<<< HEAD
-            landmarkName = "unknown"
-            landmarkType = "0">
-=======
             landmarkName = "unwindToEventsTableViewController(segue:)"
             landmarkType = "7">
->>>>>>> e140bffac99dc1b8e8dcd07fce2f04e702652521
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -575,18 +550,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Attendance/View Controllers/LezingTableViewController.swift"
-            timestampString = "563898810.298375"
+            timestampString = "563905323.212557"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
-<<<<<<< HEAD
-            landmarkName = "unknown"
-            landmarkType = "0">
-=======
             landmarkName = "unwindToEventsTableViewController(segue:)"
             landmarkType = "7">
->>>>>>> e140bffac99dc1b8e8dcd07fce2f04e702652521
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -596,18 +566,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Attendance/View Controllers/LezingTableViewController.swift"
-            timestampString = "563898810.298489"
+            timestampString = "563905323.213653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
-<<<<<<< HEAD
-            landmarkName = "unknown"
-            landmarkType = "0">
-=======
             landmarkName = "unwindToEventsTableViewController(segue:)"
             landmarkType = "7">
->>>>>>> e140bffac99dc1b8e8dcd07fce2f04e702652521
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
