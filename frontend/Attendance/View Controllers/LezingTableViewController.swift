@@ -23,7 +23,6 @@ class LezingTableViewController: UITableViewController {
             
             guard controller.nameTextfield.text != nil else {return}
             guard controller.descriptionTextfield.text != nil else {return}
-            //guard controller.location != nil else {return}
             
             let formatter = DateFormatter()
             formatter.dateStyle = .medium
@@ -33,23 +32,29 @@ class LezingTableViewController: UITableViewController {
             let description = controller.descriptionTextfield.text!
             let startDateTime = controller.startDatePicker.date
             let endTime = controller.endDatePicker.date
+            //let location = EventLocation(locationName: "test", location: "test", longitude: 3.0, latitude: 5.0)
             let location = controller.location!
             let groups: [Group] = controller.groupTableViewCell.groups
             
-            var lezing = Lezing(lezingID: lezingen.count + 1, title: name, description: description, startDate: startDateTime, endDate: endTime, location: location, groups: groups)
+            var lezing = Lezing(lezingID: lezingen.count + 1, title: name, description: description, startDate: startDateTime, endDate: endTime, location: location, groups: groups, creator: currentUser!)
+            lezing.isPublished = false
+            currentUser = lezing.creator
+            
             if let selectedIndexPath = lezingenTableView.indexPathForSelectedRow {
                 lezing.lezingID = lezingen[selectedIndexPath.row].lezingID
                 updateLezing(with: lezing)
             } else {
                 saveLezing(lezing: lezing)
             }
-        } else {
+        }  else {
             loadLezingen()
         }
+        
     }
     
-    var lezingen: [Lezing] = []
     
+    var currentUser: User?
+    var lezingen: [Lezing] = []
     let lezingService: LezingService = LezingService()
     
     override func viewDidLoad() {
@@ -67,10 +72,16 @@ class LezingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "LezingCell", for: indexPath)
+        let cell: LezingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "LezingCell", for: indexPath) as! LezingTableViewCell
         let event = lezingen[indexPath.row]
-        cell.textLabel?.text = event.name
-        cell.detailTextLabel?.text = event.description
+        cell.event = event
+        cell.delegate = self
+        cell.title?.text = event.name
+        cell.detail?.text = event.description
+        if let published = event.isPublished {
+            cell.publishButton.isEnabled = !published
+        }
+        
         return cell
     }
     
@@ -87,7 +98,6 @@ class LezingTableViewController: UITableViewController {
     }
     
     func saveLezing(lezing: Lezing) {
-        // opslaan van lezing hier
         lezingService.addNewLezing(newLezing: lezing) { (lezing) in
             self.loadLezingen()
         }
@@ -101,17 +111,30 @@ class LezingTableViewController: UITableViewController {
         }
     }
     
+    func publishLezing(_ id: Int) {
+        lezingService.publishLezing(id: id) { () in
+            self.loadLezingen()
+        }
+    }
+    
     func loadLezingen() {
-        lezingService.fetchAllLezingen { (lezingen) in
+        lezingService.fetchAllLezingen(user: currentUser!, completion:  { (lezingen) in
             if let lezingen = lezingen {
                 self.lezingen = lezingen
                 DispatchQueue.main.async {
                     self.lezingenTableView.reloadData()
                 }
             }
-        }
+        })
     }
+    
+    
     
 }
 
+extension LezingTableViewController: LezingTableViewCellDelegate {
+    func publishPressed(sender: LezingTableViewCell) {
+        self.publishLezing(sender.event!.lezingID)
+    }
+}
 

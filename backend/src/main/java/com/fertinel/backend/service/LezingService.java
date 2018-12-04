@@ -1,29 +1,27 @@
 package com.fertinel.backend.service;
 
-import java.util.Set;
+import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fertinel.backend.data.Group;
 import com.fertinel.backend.data.Lezing;
-import com.fertinel.backend.repository.GroupRepository;
-import com.fertinel.backend.repository.LezingRepository;
 
 @Service
-public class LezingService {
+public interface LezingService {
 
-	@Autowired
-	private LezingRepository lezingRepository;
 	
-	@Autowired
-	private GroupRepository groupRepository;
+	Iterable<Lezing> findAll();
 	
-	public LezingService() {
-	}
+	Iterable<Lezing> findByCreator(int userId);
 	
-	public void saveLezing(Lezing l) {
-		lezingRepository.save(l);
-	}
+	Lezing publish(int lezingId);
+	
+	void save(Lezing lezing);
+
+	Optional<Lezing> findById(int id);
+	
+	long count();
+
+	Lezing findById(int userId, int id);
 	
 }

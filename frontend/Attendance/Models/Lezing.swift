@@ -22,6 +22,8 @@ struct Lezing : Codable{
     var isPublished: Bool?
     var groups: [Group]?
     
+    var creator: User
+    
     enum LezingKeys: String, CodingKey {
         case lezingID
         case name
@@ -30,6 +32,8 @@ struct Lezing : Codable{
         case endTime
         case groups
         case eventLocation
+        case creator
+        case published
     }
     
     init(from decoder: Decoder) throws {
@@ -54,10 +58,13 @@ struct Lezing : Codable{
             self.endTime = time
         }
         
+        self.isPublished = try valueContainer.decode(Bool.self, forKey: .published)
+        
+        self.creator = try valueContainer.decode(User.self, forKey: .creator)
     }
    
     
-    init(lezingID: Int, title: String, description: String, startDate: Date, endDate:Date, location: EventLocation, groups: [Group]) {
+    init(lezingID: Int, title: String, description: String, startDate: Date, endDate:Date, location: EventLocation, groups: [Group], creator: User) {
         self.lezingID = lezingID
        self.name = title
         self.description = description
@@ -65,6 +72,7 @@ struct Lezing : Codable{
         self.endTime = endDate
         self.eventLocation = location
         self.groups = groups
+        self.creator = creator
     }
 
     

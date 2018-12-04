@@ -1,58 +1,55 @@
 package com.fertinel.backend.controller;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fertinel.backend.data.EventLocation;
-import com.fertinel.backend.data.Group;
 import com.fertinel.backend.data.Lezing;
-import com.fertinel.backend.repository.EventLocationRepository;
+import com.fertinel.backend.data.Group;
 import com.fertinel.backend.repository.GroupRepository;
 import com.fertinel.backend.repository.LezingRepository;
+import com.fertinel.backend.repository.UserRepository;
+import com.fertinel.backend.service.LezingService;
 
 @RestController
 @RequestMapping("/api")
 public class LezingController {
 
 	@Autowired
-	private LezingRepository lezingRepository;
-	
-	@Autowired
-	private GroupRepository groupRepository;
+	private LezingService lezingService;
 	
 	@Autowired 
-	private EventLocationRepository eventLocationRepository;
+	private GroupRepository groupRepository;
 	
-	@GetMapping("/lezingen")
-	public @ResponseBody Iterable<Lezing> getAll() {
-		return lezingRepository.findAll();
+	@Autowired
+	private UserRepository userRepository;
+	
+	@GetMapping("/lezingen/{userId}")
+	public @ResponseBody Iterable<Lezing> getAll(@PathVariable("userId") String userId) {
+		int uId = Integer.parseInt(userId);
+		System.out.println(uId);
+		return lezingService.findAll();
 	}
 	
-	@GetMapping("/lezingen/{id}")
-	public @ResponseBody Lezing getLezing(@PathVariable("id") int id) {
-		return lezingRepository.findById(id).get();
+	@GetMapping("/lezingen/{userId}/lezing/{id}")
+	public @ResponseBody Lezing getLezing(@PathVariable("userId") int userId, @PathVariable("id") int id) {
+		return lezingService.findById(userId, id);
 		
 	}
 	@PostMapping("/lezingen/add")
 	public Lezing newLezing(@RequestBody Lezing l) {
 		
-		Lezing newLezing = new Lezing((int) lezingRepository.count() + 1,l.getName(), l.getDescription(), l.getStartDateTime(), l.getEndTime());
-		
+		Lezing newLezing = new Lezing((int) lezingService.count() + 1,l.getName(), l.getDescription(), l.getStartDateTime(), l.getEndTime(), false);
+		newLezing.setCreator(l.getCreator());
 		newLezing.setEventLocation(l.getEventLocation());
 		l.getGroups().forEach(g -> {
 			Optional<Group> dbGroup = groupRepository.findById(g.getGroupID());
@@ -60,7 +57,7 @@ public class LezingController {
 		});
 		
 
-		lezingRepository.save(newLezing);
+		lezingService.save(newLezing);
 		
 		return newLezing;
 	}
@@ -68,7 +65,7 @@ public class LezingController {
 	@PutMapping("/lezingen/{id}") 
 	public ResponseEntity<Lezing> updateLezing(@PathVariable int id, @RequestBody Lezing lezing) {
 		
-		Optional<Lezing> dbLezing = lezingRepository.findById(id);
+		Optional<Lezing> dbLezing = lezingService.findById(id);
 		
 		if(!dbLezing.isPresent()) {
 			return ResponseEntity.notFound().build();
@@ -76,9 +73,16 @@ public class LezingController {
 		
 		lezing.setLezingID(id);
 		
-		lezingRepository.save(lezing);
+		lezingService.save(lezing);
 		
 		return ResponseEntity.noContent().build();
+	}
+	
+	@PutMapping("/lezingen/{id}/publish")
+	public Lezing publishLezing(@PathVariable int id) {
+		
+		return lezingService.publish(id);
+		
 	}
 
 }

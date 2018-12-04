@@ -19,6 +19,7 @@ import javax.persistence.*;
 public class Lezing {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int lezingID;
 
 	@Column
@@ -34,6 +35,9 @@ public class Lezing {
 	@Column
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime endTime;
+	
+	@Column
+	private boolean published;
 
 	@OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name = "location_id")
@@ -45,15 +49,20 @@ public class Lezing {
       inverseJoinColumns = @JoinColumn(name = "group_id"))
 	private Set<Group> groups = new HashSet<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID")
+    private User creator;
+    
 	public Lezing() {
 	}
 
-	public Lezing(int id, String name, String description, LocalDateTime startDateTime, LocalDateTime endTime) {
+	public Lezing(int id, String name, String description, LocalDateTime startDateTime, LocalDateTime endTime, boolean published) {
 		this.lezingID = id;
 		this.name = name;
 		this.description = description;
 		this.startDateTime = startDateTime;
 		this.endTime = endTime;
+		this.published = false;
 	}
 
 
@@ -136,5 +145,24 @@ public class Lezing {
 	public void setEventLocation(EventLocation e) {
 		this.eventLocation = e;
 	}
+
+	public User getCreator() {
+		return creator;
+	}
+
+	public void setCreator(User creator) {
+		this.creator = creator;
+	}
+
+	public boolean isPublished() {
+		return published;
+	}
+
+	public void setPublished(boolean published) {
+		this.published = published;
+	}
+	
+	
+
 	
 }
