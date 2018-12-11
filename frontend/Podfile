@@ -6,6 +6,7 @@ target 'Attendance' do
   use_frameworks!
 
   # Pods for Attendance
+  pod 'Alamofire', '~> 4.7'
 
   target 'AttendanceTests' do
     inherit! :search_paths

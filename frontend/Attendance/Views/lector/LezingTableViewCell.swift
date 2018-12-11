@@ -13,10 +13,10 @@ class LezingTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var detail: UILabel!
     
-    @IBOutlet weak var publishButton: UIButton!
+    @IBOutlet weak var button: UIButton!
     
     @IBAction func publishLezing(_ sender: Any) {
-        delegate?.publishPressed(sender: self)
+        delegate?.buttonPressed(sender: self)
     }
     
     var event: Lezing?
@@ -37,5 +37,7 @@ class LezingTableViewCell: UITableViewCell {
 }
 
 @objc protocol LezingTableViewCellDelegate: class {
-    func publishPressed(sender: LezingTableViewCell)
+    @objc func buttonPressed(sender: LezingTableViewCell)
+    
+    
 }

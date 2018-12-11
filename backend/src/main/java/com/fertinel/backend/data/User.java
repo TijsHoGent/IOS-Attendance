@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -31,6 +32,10 @@ public class User implements UserDetails{
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "ROLE_ID")
 	private Role role;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@JoinColumn(name = "GROUP_ID")
+	private Group group;
 	
 	public User() {
 	}
@@ -102,6 +107,18 @@ public class User implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+
+
+	public Group getGroup() {
+		return group;
+	}
+
+
+
+	public void setGroup(Group group) {
+		this.group = group;
 	}
 	
 	

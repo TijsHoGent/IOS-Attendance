@@ -12,9 +12,7 @@ public interface LezingService {
 	
 	Iterable<Lezing> findAll();
 	
-	Iterable<Lezing> findByCreator(int userId);
-	
-	Lezing publish(int lezingId);
+	Iterable<Lezing> findForUser(int userId);
 	
 	void save(Lezing lezing);
 
@@ -23,5 +21,7 @@ public interface LezingService {
 	long count();
 
 	Lezing findById(int userId, int id);
+
+	void publish(int id, Lezing editedLezing);
 	
 }

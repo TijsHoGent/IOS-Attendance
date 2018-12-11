@@ -53,6 +53,7 @@ class AddEventTableViewController: UITableViewController, GroupTableViewCellDele
     override func viewDidLoad() {
         super.viewDidLoad()
         if let selected = lezing {
+            self.navigationItem.title = selected.name
             if let location = selected.eventLocation {
                 self.location = location
             } else {
@@ -61,7 +62,7 @@ class AddEventTableViewController: UITableViewController, GroupTableViewCellDele
             navigationItem.rightBarButtonItem?.title = "Update" 
             nameTextfield.text = selected.name
             descriptionTextfield.text = selected.description
-            locationLabel.text = selected.eventLocation?.locationName
+            locationLabel.text = selected.eventLocation?.location
             if let startDateTime = selected.startDateTime, let endTime = selected.endTime {
                 startDatePicker.setDate(startDateTime, animated: true)
                 endDatePicker.setDate(endTime, animated: true)
@@ -70,7 +71,7 @@ class AddEventTableViewController: UITableViewController, GroupTableViewCellDele
                 groupTableViewCell.groups = groups
                 groupTableViewCell.reload()
             }
-            //locationLabel.text = selected.location?.locationName
+            locationLabel.text = selected.eventLocation?.locationName
         }
     }
 

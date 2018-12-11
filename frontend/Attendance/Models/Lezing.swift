@@ -19,7 +19,7 @@ struct Lezing : Codable{
     
     var eventLocation:EventLocation?
     
-    var isPublished: Bool?
+    var published: Bool = false
     var groups: [Group]?
     
     var creator: User
@@ -58,7 +58,7 @@ struct Lezing : Codable{
             self.endTime = time
         }
         
-        self.isPublished = try valueContainer.decode(Bool.self, forKey: .published)
+        self.published = try valueContainer.decode(Bool.self, forKey: .published)
         
         self.creator = try valueContainer.decode(User.self, forKey: .creator)
     }

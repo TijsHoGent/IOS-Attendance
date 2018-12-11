@@ -1,10 +1,14 @@
 package com.fertinel.backend.controller;
 
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -36,8 +40,7 @@ public class LezingController {
 	@GetMapping("/lezingen/{userId}")
 	public @ResponseBody Iterable<Lezing> getAll(@PathVariable("userId") String userId) {
 		int uId = Integer.parseInt(userId);
-		System.out.println(uId);
-		return lezingService.findAll();
+		return lezingService.findForUser(uId);
 	}
 	
 	@GetMapping("/lezingen/{userId}/lezing/{id}")
@@ -78,11 +81,11 @@ public class LezingController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@PutMapping("/lezingen/{id}/publish")
-	public Lezing publishLezing(@PathVariable int id) {
+	@PatchMapping("/lezingen/{id}/publish")
+	public ResponseEntity<Resource<Lezing>> publishLezing(@PathVariable("id") int id, @RequestBody Lezing publishedLezing) {
+		lezingService.publish(id, publishedLezing);
 		
-		return lezingService.publish(id);
-		
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 
 }

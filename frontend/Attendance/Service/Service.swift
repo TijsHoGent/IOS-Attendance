@@ -31,4 +31,15 @@ class Service<T: Codable> {
         }
         
     }
+    
+    func encode(object: T?) -> Data {
+        let encoder = JSONEncoder()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        encoder.dateEncodingStrategy = .formatted(dateFormatter)
+        let jsonData = try! encoder.encode(object)
+        return jsonData
+    }
 }

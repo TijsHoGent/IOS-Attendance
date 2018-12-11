@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fertinel.backend.data.EventLocation;
 import com.fertinel.backend.data.Group;
 import com.fertinel.backend.data.Lezing;
 import com.fertinel.backend.data.Role;
@@ -25,6 +26,9 @@ public class BackendApplication implements CommandLineRunner{
 	
 	@Autowired
 	private LezingRepository lezingRepository;
+	
+	@Autowired
+	private GroupRepository groupRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
@@ -48,15 +52,29 @@ public class BackendApplication implements CommandLineRunner{
 		userRepository.save(testStudent2);
 		userRepository.save(testStudent3);
 		
+		Group groupA = new Group("Group A");
+		groupA.addStudent(testStudent1);
+		groupA.addStudent(testStudent2);
+		
+		Group groupB = new Group("Group B");
+		groupB.addStudent(testStudent3);
+		
+		groupRepository.save(groupA);
+		groupRepository.save(groupB);
+		
+		
 		
 		// create a lezing
-		Lezing l1 = new Lezing(1,"Lezing A", "Description of A", LocalDateTime.of(2019, Month.NOVEMBER, 15, 15,00,00), LocalDateTime.of(2019, Month.NOVEMBER, 16, 16,45, 00), false);
+		Lezing l1 = new Lezing(1,"Lezing A", "Description of A", LocalDateTime.of(2018, Month.DECEMBER, 11, 15,00,00), LocalDateTime.of(2018, Month.DECEMBER, 11, 16,45, 00), false);
+		l1.addGroup(groupA);
+		l1.addGroup(groupB);
 		l1.setCreator(testLector);
-		Lezing l2 = new Lezing(2,"Lezing B", "Description of B", LocalDateTime.of(2019, Month.NOVEMBER, 16, 15,00,00), LocalDateTime.of(2019, Month.NOVEMBER, 16, 16,45, 00), false);
-		l2.setCreator(testLector);
-		//
-//
+
 		lezingRepository.save(l1);
+		
+		Lezing l2 = new Lezing(2,"Lezing B", "Description of B", LocalDateTime.of(2018, Month.DECEMBER, 11, 16,00,00), LocalDateTime.of(2018, Month.DECEMBER, 20, 16,45, 00), false);
+		l2.setCreator(testLector);
+		l2.addGroup(groupA);
 		lezingRepository.save(l2);
 //		
 //		Group groupA = new Group(1,"Group A");
@@ -67,13 +85,6 @@ public class BackendApplication implements CommandLineRunner{
 //
 //		l2.addGroup(groupA);
 //		
-//		EventLocation location = new EventLocation("Ghent", "Hogent Schoonmeerschen", 3.7018883228302002, 51.03134887142105);
-//	
-//		
-//		l1.setEventLocation(location);
-//		l2.setEventLocation(location);
-//		
-//		lezingRepository.save(l1);
 //		lezingRepository.save(l2);
 		
 

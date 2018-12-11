@@ -24,6 +24,9 @@ public class LoginController {
 	@GetMapping(path= "/login", params = {"username", "password"})
 	public @ResponseBody User login(@RequestParam(value="username") String username, @RequestParam(value="password")String password) {
 		User dbUser = userService.findByUsername(username);
+		if(dbUser == null) {
+			return null;
+		}
 		System.out.println(username + " " + password);
 		if(dbUser.getPassword() == password) {
 			//System.out.println(dbUser.getId() + " " + dbUser.getRole() + " " + dbUser.getPassword());

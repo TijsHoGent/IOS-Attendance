@@ -8,3 +8,10 @@
 
 import Foundation
 
+class Lector: User {
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
+    
+}

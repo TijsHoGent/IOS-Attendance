@@ -45,7 +45,9 @@ class LoginViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let landingScreen = storyboard.instantiateViewController(withIdentifier: "Landing") as! LezingTableViewController
         let landingNavController = storyboard.instantiateViewController(withIdentifier: "lezingNavController") as! UINavigationController
-        landingScreen.currentUser = currentUser
+        
+        landingScreen.currentUser = currentUser!
+    
         landingNavController.pushViewController(landingScreen, animated: true)
         self.present(landingNavController, animated: true, completion: nil)
     }

@@ -8,9 +8,18 @@
 
 import Foundation
 
-struct Student {
+class Student: User {
     
-    var name: String
-    var email: String
+    var group: Group
+    
+    enum StudentKeys: String, CodingKey {
+        case group
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: StudentKeys.self)
+        self.group = try container.decode(Group.self, forKey: .group)
+        try super.init(from: decoder)
+    }
     
 }

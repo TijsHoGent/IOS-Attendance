@@ -37,7 +37,7 @@ class LezingTableViewController: UITableViewController {
             let groups: [Group] = controller.groupTableViewCell.groups
             
             var lezing = Lezing(lezingID: lezingen.count + 1, title: name, description: description, startDate: startDateTime, endDate: endTime, location: location, groups: groups, creator: currentUser!)
-            lezing.isPublished = false
+            lezing.published = false
             currentUser = lezing.creator
             
             if let selectedIndexPath = lezingenTableView.indexPathForSelectedRow {
@@ -53,12 +53,15 @@ class LezingTableViewController: UITableViewController {
     }
     
     
-    var currentUser: User?
+    var currentUser : User?
     var lezingen: [Lezing] = []
     let lezingService: LezingService = LezingService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if currentUser!.role!.name == "Student" {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+        }
         loadLezingen()
     }
     
@@ -66,32 +69,64 @@ class LezingTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let lezing:Lezing = lezingen[lezingenTableView.indexPathForSelectedRow!.row]
+        let storyboard : UIStoryboard = self.storyboard!
+        if currentUser!.role!.name == "Lector" {
+           let targetController = storyboard.instantiateViewController(withIdentifier: "eventEditController") as! AddEventTableViewController
+            targetController.lezing = lezing
+            if let navController = self.navigationController {
+                navController.pushViewController(targetController, animated: false)
+            }
+        } else if currentUser!.role!.name == "Student" {
+            let targetController = storyboard.instantiateViewController(withIdentifier: "eventInfoController") as! EventInfoTableViewController
+            targetController.selectedEvent = lezing
+            if let navController = self.navigationController {
+                navController.pushViewController(targetController, animated: false)
+            }
+        }
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lezingen.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: LezingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "LezingCell", for: indexPath) as! LezingTableViewCell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LezingCell", for: indexPath) as! LezingTableViewCell
         let event = lezingen[indexPath.row]
         cell.event = event
         cell.delegate = self
+        
         cell.title?.text = event.name
         cell.detail?.text = event.description
-        if let published = event.isPublished {
-            cell.publishButton.isEnabled = !published
+        
+        if currentUser!.role!.name == "Student" {
+            cell.button.setTitle("Enroll", for: .normal)
+        } else if currentUser!.role!.name == "Lector"{
+         
+            if(event.published) {
+                cell.button.setTitle("Published!", for: .normal)
+            } else {
+                cell.button.setTitle("Publish", for: .normal)
+            }
         }
         
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editEvent" {
             let lezing:Lezing = lezingen[lezingenTableView.indexPathForSelectedRow!.row]
-            let addEventTableViewController = segue.destination as! AddEventTableViewController
-            addEventTableViewController.lezing = lezing
-        } 
-    }
+            if currentUser!.role!.name == "Lector" {
+                let addEventTableViewController = segue.destination as! AddEventTableViewController
+                addEventTableViewController.lezing = lezing
+            } else if currentUser!.role!.name == "Student" {
+                let storyboard : UIStoryboard = self.storyboard!
+                let eventInfoTableViewController = segue.destination as! EventInfoTableViewController
+                eventInfoTableViewController.selectedEvent = lezing
+            }
+        }
+    }*/
     
     func updateUI(with lezingen: [Lezing]) {
         self.lezingen = lezingen
@@ -111,8 +146,8 @@ class LezingTableViewController: UITableViewController {
         }
     }
     
-    func publishLezing(_ id: Int) {
-        lezingService.publishLezing(id: id) { () in
+    func publishLezing(_ id: Int, lezing: Lezing) throws {
+        try lezingService.publishLezing(id: id, lezing: lezing) { () in
             self.loadLezingen()
         }
     }
@@ -133,8 +168,16 @@ class LezingTableViewController: UITableViewController {
 }
 
 extension LezingTableViewController: LezingTableViewCellDelegate {
-    func publishPressed(sender: LezingTableViewCell) {
-        self.publishLezing(sender.event!.lezingID)
+
+    func buttonPressed(sender: LezingTableViewCell) {
+        
+        if currentUser!.role!.name == "Student" {
+            
+        } else if currentUser!.role!.name == "Lector" {
+            var lezing: Lezing = lezingen.filter({$0.lezingID == sender.event!.lezingID}).first!
+            lezing.published.toggle()
+            try! self.publishLezing(lezing.lezingID, lezing: lezing)
+        }
     }
 }
 

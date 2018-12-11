@@ -103,7 +103,7 @@ public class Lezing {
 	}
 
 	public void addGroup(Group g) {
-		this.groups.add(g);
+		getGroups().add(g);
 		g.getLezingen().add(this);
 	}
 	

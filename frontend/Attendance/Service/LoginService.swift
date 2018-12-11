@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Alamofire
 
 
 class LoginService: Service<User> {
@@ -15,18 +15,27 @@ class LoginService: Service<User> {
     func login(username: String, password: String, onSuccess: @escaping (User) -> Void, onError: @escaping () -> Void) {
         let baseUrl = URL(string: "http://127.0.0.1:8080/api/login?username=\(username)&password=\(password)")!
 
-        let task = URLSession.shared.dataTask(with: baseUrl) { (data, response, error) in
-            let decoder = JSONDecoder()
-            if let data = data , let user = try? decoder.decode(User.self, from: data) {
-                print(user.role!)
-                print(user.id!)
-                onSuccess(user)
-            } else {
-                onError()
-                return
-            }
+        let parameters: Parameters = [
+            "username": username,
+            "password": password,
+        ]
+        
+        Alamofire.request(baseUrl)
+            .responseJSON { (response) in
+                let decoder = JSONDecoder()
+                if let userData = response.data , let user = try? decoder.decode(User.self, from: userData){
+                    if let role = user.role {
+                        switch(role.name) {
+                        case "Lector":
+                            onSuccess(try! decoder.decode(Lector.self, from: userData))
+                        case "Student":
+                            onSuccess(try! decoder.decode(Student.self, from: userData))
+                        default:
+                            onError()
+                        }
+                    }
+                }
         }
-        task.resume()
         
     }
     
